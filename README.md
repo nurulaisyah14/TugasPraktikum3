@@ -75,7 +75,7 @@ CREATE TABLE KRSMahasiswa (
 *Saya buat script baru tapi bisa juga lihat scriptnya di tugas sebelumnya [Praktikum 2](https://github.com/AnggitaRisqiNC/Praktikum-2.git)*
 
 #### Table Mahasiswa pada praktikum sebelumnya
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/0.png)
+![image](0.png)
 
 ### Tugas Praktikum 3
 #### 1. Lakukan penambahan data pada table mahasiswa dengan mengisi *kd_ds* yang belum ada pada data dosen.
@@ -177,9 +177,68 @@ DELETE FROM Dosen WHERE kd_ds = 'DS004';
 **Keterangan :** `kd_ds` berhasil dihapus.
 
 
-### Evaluasi dan Pertanyaan
-#### Tulis semua perintah-perintah SQL percobaan di atas beserta outputnya!
-[Click Here](#tugas-praktikum-3)
+ ## Evaluasi dan Pertanyaan
+  * Tulis semua perintah-perintah SQL percobaan di atas beserta outputnya!
+
+  ### Syntax SQL
+
+  - Membuat foreign key
+
+    - Dalam ALTER TABLE:
+      ```SQL
+      ALTER TABLE mahasiswa
+      ADD CONSTRAINT fk_dosenwali FOREIGN KEY (kd_ds)     REFERENCES dosen(kd_ds)
+      ```
+    - Dalam CREATE TABLE:
+      ```sql
+      CREATE TABLE mahasiswa(
+      nim VARCHAR(10) NOT NULL,
+      nama VARCHAR(100) NOT NULL,
+      kd_ds VARCHAR(10),
+      PRIMARY KEY(nim),
+      CONSTRAINT fk_DosenWali FOREIGN KEY (kd_ds)
+      REFERENCES dosen(kd_ds)
+      );
+      ```
+
+    ```
+
+    ```
+
+  - Mengubah data
+    ```sql
+    UPDATE mahasiswa
+    SET kd_ds = 'DS011' WHERE nim = 112233445;
+    ```
+  - Menampilkan CREATE TABLE
+    ```sql
+    SHOW CREATE TABLE  mahasiswa;
+    ```
+  - Mode ON UPDATE CASCADE ON DELETE CASCADE
+    ```sql
+    ALTER TABLE mahasiswa
+    DROP FOREIGN KEY fk_mahasiswa_dosen,
+    ADD CONSTRAINT fk_dosenwali FOREIGN KEY (kd_ds) REFERENCES dosen(kd_ds) ON UPDATE CASCADE ON DELETE CASCADE;
+    ```
+  - Menghapus data
+    ```sql
+    DELETE FROM dosen WHERE kd_ds = 'DS001';
+    ```
+  - Mode ON UPDATE CASCADE ON DELETE NOT NULL
+    ```sql
+    ALTER TABLE <table>
+    DROP FOREIGN KEY <nama_constraint_lama>,
+    ADD CONSTRAINT <nama_constraint_baru> FOREIGN KEY (field) REFERENCES <table_references(filed_references)> ON UPDATE CASCADE ON DELETE NOT NULL;
+    ```
+  - Mengubah data
+    ```sql
+    UPDATE dosen
+    SET kd_ds = 'DS006' WHERE nama = 'Haha Hihi';
+    ```
+  - Menghapus data
+    ```sql
+    DELETE FROM dosen WHERE nim = 'DS003';
+      ```
 
 #### Apa bedanya penggunaan RESTRICT dan penggunaan CASCADE
 * **Restrict** = yaitu perubahan data dan penghapusan data tidak diijinkan pada tabel referensi (parent table) apabila pada tabel child sudah ada yang merujuk pada data tersebut.
