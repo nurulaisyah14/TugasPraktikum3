@@ -72,7 +72,7 @@ CREATE TABLE KRSMahasiswa (
   CONSTRAINT FK_KRSDosen FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds)
 );
 ```
-*Saya buat script baru tapi bisa juga lihat scriptnya di tugas sebelumnya [Praktikum 2](https://github.com/AnggitaRisqiNC/Praktikum-2.git)*
+*Saya buat script baru tapi bisa juga lihat scriptnya di tugas sebelumnya [[Praktikum 2](https://github.com/AnggitaRisqiNC/Praktikum-2.git](https://github.com/nurulaisyah14/TugasPraktikum2.git)*
 
 #### Table Mahasiswa pada praktikum sebelumnya
 ![image](0.png)
