@@ -82,29 +82,29 @@ CREATE TABLE KRSMahasiswa (
 **Script :**
 ```sql
 INSERT INTO Dosen (kd_ds, nama) VALUES
-('DS001', 'Johnny'),
-('DS002', 'Jake'),
-('DS003', 'Hanny'),
-('DS004', 'Karina'),
-('DS005', 'Eric');
+('DS001', 'Nurul'),
+('DS002', 'Gladis'),
+('DS003', 'Oktavia'),
+('DS004', 'Fajar'),
+('DS005', 'Bayu');
 select * from Dosen;
 
 INSERT INTO Mahasiswa (nim, nama, jenis_kelamin, tgl_lahir, jalan, kota, kodepos, no_hp, kd_ds) VALUES
-('11223344', 'Ari Santoso', 'Laki-laki', '1979-08-31', NULL, 'Bekasi', NULL, NULL, 'DS001'),
-('11223345', 'Ario Talib', 'Laki-laki', '1999-11-16', NULL, 'Cikarang', NULL, NULL, 'DS002'),
-('11223347', 'Lisa Ayu', 'Perempuan', '1996-01-02', NULL, 'Bekasi', NULL, NULL, 'DS003'),
-('11223348', 'Tiara Wahidah', 'Perempuan', '1908-02-05', NULL, 'Bekasi', NULL, NULL, 'DS004'),
-('11223349', 'Anton Sinaga', 'Laki-laki', '1988-03-10', NULL, 'Cikarang', NULL, NULL, 'DS005');
+('11223344', 'Nurul Aisyah', 'Perempuan', '2005-07-14', NULL, 'Cikarang', NULL, NULL, 'DS001'),
+('11223345', 'Gladis Toti', 'Perempuan', '2005-11-16', NULL, 'Cikarang', NULL, NULL, 'DS002'),
+('11223347', 'Oktavia Rizkha', 'Perempuan', '2002-01-02', NULL, 'Bekasi', NULL, NULL, 'DS003'),
+('11223348', 'Fajar Surya', 'Laki-laki', '2005-02-05', NULL, 'Bekasi', NULL, NULL, 'DS004'),
+('11223349', 'Bayu Aji', 'Laki-laki', '2005-03-10', NULL, 'Cikarang', NULL, NULL, 'DS005');
 select * from Mahasiswa;
 ```
 
 **Output Tabel Dosen**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/1.png)
+![image](1.png)
 
 **Output Tabel Mahasiswa**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/2.png)
+![image](2.png)
 
 #### 2. Hapus satu record data pada table dosen yang telah dirujuk pada tabel mahasiswa.
 ```sql
@@ -113,7 +113,7 @@ DELETE FROM Dosen WHERE kd_ds = 'DS002';
 
 **Output**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/3.png)
+![image](.png)
 
 **Keterangan :** Terjadi ERROR dikarenakan `kd_ds` pada tabel Mahasiswa merupakan **FOREIGN KEY** dari tabel refensinya yaitu tabel Dosen. Dan pada tabel Dosen `kd_ds` merupakan **PRIMARY KEY**. Itu artinya, tabel Dosen sebagai tabel *parent/references* dan Mahasiswa sebagai tabel *child* maka dari itu saat menghapus satu record data pada tabel dosen terjadi error. 
 
@@ -125,7 +125,7 @@ ALTER TABLE Mahasiswa ADD CONSTRAINT FK_DosenMahasiswa FOREIGN KEY (kd_ds) REFER
 
 **Output**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/4.png)
+![image](4.png)
 
 #### 4. Lakukan perubahan data pada table dosen *(kd_ds)*
 ```sql
@@ -134,7 +134,7 @@ UPDATE Dosen SET kd_ds = 'DS007' WHERE kd_ds = 'DS005';
 
 **Output**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/5.png)
+![image](5.png)
 
 **Keterangan :** `kd_ds` dapat diubah dikarenakan sebelumnya menggunakan `ON UPDATE CASCADE`
 
@@ -145,7 +145,7 @@ DELETE FROM Dosen WHERE kd_ds = 'DS001';
 
 **Output**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/6.png)
+![image](6.png)
 
 **Keterangan :** Terjadi ERROR dan `kd_ds` tidak dapat dihapus.
 
@@ -157,7 +157,7 @@ ALTER TABLE Mahasiswa ADD CONSTRAINT FK_DosenWali FOREIGN KEY (kd_ds) REFERENCES
 
 **Output**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/7.png)
+![image](7.png)
 
 #### 7. Lakukan penghapusan data pada table dosen
 ```sql
@@ -166,12 +166,12 @@ DELETE FROM Dosen WHERE kd_ds = 'DS004';
 
 **Output pada tabel Dosen**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/9.png)
+![image](9.png)
 
 
 **Output pada tabel Mahasiswa**
 
-![image](https://github.com/AnggitaRisqiNC/Praktikum-3/blob/main/screenshot/8.png)
+![image](8.png)
 
 
 **Keterangan :** `kd_ds` berhasil dihapus.
@@ -250,6 +250,6 @@ Keduanya dapat ditambahkan pada action `ON UPDATE` dan `ON DELETE` selain itu, b
 Dalam kesimpulannya, **RESTRICT** dan **CASCADE** digunakan untuk mengatur perilaku ketika ada perubahan atau penghapusan data pada tabel utama. Jika digunakan dengan benar, ini dapat membantu memastikan integritas referensial dan konsistensi data antara tabel-tabel yang saling berhubungan.
 
 #### Buat laporan praktikum yang berisi, langkah-langkah praktikum beserta screenshot yang sudah dilakukan dalam bentuk dokumen.
-[Link PDF](https://drive.google.com/file/d/1NmJa0T-qU4AtYTB9Hj803KfkaNqm6IKM/view?usp=share_link)
+[Link PDF](share_link)
 
 ## Finish
