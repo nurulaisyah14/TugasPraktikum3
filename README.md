@@ -164,7 +164,8 @@ ALTER TABLE Mahasiswa ADD CONSTRAINT FK_DosenWali FOREIGN KEY (kd_ds) REFERENCES
 
 **Output**
 
-![image](7.png)
+![Screenshot 2024-05-20 123443](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/10969ddc-ae1e-438e-bfa1-f37fcdda28e0)
+
 
 #### 7. Lakukan penghapusan data pada table dosen
 ```sql
