@@ -100,11 +100,13 @@ select * from Mahasiswa;
 
 **Output Tabel Dosen**
 
-![image](1.png)
+![Screenshot 2024-05-20 115558](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/5b79f93d-85aa-4f7f-88d9-d1ca33f347e7)
+
 
 **Output Tabel Mahasiswa**
 
-![image](2.png)
+![Screenshot 2024-05-20 115618](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/4716d029-7838-40d3-9142-697fa7650982)
+
 
 #### 2. Hapus satu record data pada table dosen yang telah dirujuk pada tabel mahasiswa.
 ```sql
@@ -113,7 +115,10 @@ DELETE FROM Dosen WHERE kd_ds = 'DS002';
 
 **Output**
 
-![image](.png)
+![Screenshot 2024-05-20 115558](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/3f145f2b-7174-40cb-a029-7e33f802b033)
+![Screenshot 2024-05-20 115618](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/dca5ed2b-9d32-41ba-8bc4-47dc83ed50dd)
+
+
 
 **Keterangan :** Terjadi ERROR dikarenakan `kd_ds` pada tabel Mahasiswa merupakan **FOREIGN KEY** dari tabel refensinya yaitu tabel Dosen. Dan pada tabel Dosen `kd_ds` merupakan **PRIMARY KEY**. Itu artinya, tabel Dosen sebagai tabel *parent/references* dan Mahasiswa sebagai tabel *child* maka dari itu saat menghapus satu record data pada tabel dosen terjadi error. 
 
@@ -125,7 +130,7 @@ ALTER TABLE Mahasiswa ADD CONSTRAINT FK_DosenMahasiswa FOREIGN KEY (kd_ds) REFER
 
 **Output**
 
-![image](4.png)
+![Screenshot 2024-05-20 115651](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/8607b652-cc15-4230-b6f1-d93b93717490)
 
 #### 4. Lakukan perubahan data pada table dosen *(kd_ds)*
 ```sql
@@ -134,7 +139,8 @@ UPDATE Dosen SET kd_ds = 'DS007' WHERE kd_ds = 'DS005';
 
 **Output**
 
-![image](5.png)
+![Screenshot 2024-05-20 115720](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/fc3bc77a-5826-45d5-8ff5-13abfb710c85)
+
 
 **Keterangan :** `kd_ds` dapat diubah dikarenakan sebelumnya menggunakan `ON UPDATE CASCADE`
 
@@ -145,7 +151,8 @@ DELETE FROM Dosen WHERE kd_ds = 'DS001';
 
 **Output**
 
-![image](6.png)
+![Screenshot 2024-05-20 115859](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/4230c2e0-0cdf-4401-81ca-9a07cf17ee7f)
+
 
 **Keterangan :** Terjadi ERROR dan `kd_ds` tidak dapat dihapus.
 
@@ -165,13 +172,9 @@ DELETE FROM Dosen WHERE kd_ds = 'DS004';
 ```
 
 **Output pada tabel Dosen**
+![Screenshot 2024-05-20 123215](https://github.com/nurulaisyah14/TugasPraktikum3/assets/148174512/f6792988-2063-4c23-bfea-eec0577eccbb)
 
-![image](9.png)
 
-
-**Output pada tabel Mahasiswa**
-
-![image](8.png)
 
 
 **Keterangan :** `kd_ds` berhasil dihapus.
